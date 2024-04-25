@@ -1,8 +1,13 @@
 package org.example.demo;
 
+import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
+import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
+import io.github.amithkoujalgi.ollama4j.core.models.OllamaResult;
+import io.github.amithkoujalgi.ollama4j.core.utils.OptionsBuilder;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -12,25 +17,55 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
 
-    private static final String OLLAMA_API_URL = "https://api.ollama.ai/";
+    private static final String OLLAMA_API_URL = "http://localhost:11434/";
     private static final OkHttpClient client = new OkHttpClient();
+    OllamaAPI ollamaAPI = new OllamaAPI(OLLAMA_API_URL);
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
         // Creating a TextField
         TextField textField = new TextField();
         textField.setPromptText("Enter text");
+        ollamaAPI.setVerbose(true);
+
+        boolean isOllamaServerReachable = ollamaAPI.ping();
+
+        System.out.println("Is Ollama server alive: " + isOllamaServerReachable);
 
         // Creating a Button
         Button button = new Button("Send to Ollama");
         button.setOnAction(event -> {
             // Action to perform when the button is clicked
             String text = textField.getText();
-            sendToOllama(text);
+            try {
+                // TextArea to display generated query
+                TextArea queryArea = new TextArea();
+
+                String query = "Write sparql query for the following , **I'd like you to process the following SPARQL query, but I'm only interested in the raw query itself. Please don't provide explanations or additional information.**\n ``` ";
+                query += text;
+                query += "```";
+
+                // Send request and update TextArea
+                OllamaResult result = ollamaAPI.generate("tinyllama", query, new OptionsBuilder().build());
+                queryArea.setText(result.getResponse());
+
+                // Layout update
+                VBox root = new VBox(10); // spacing between elements
+                root.getChildren().addAll(textField, button, queryArea);
+
+                // Update scene with queryArea
+                stage.setScene(new Scene(root, 320, 340)); // Adjust height for TextArea
+            } catch (OllamaBaseException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         // Creating a layout to hold TextField and Button
-        VBox root = new VBox(10); // spacing between elements
+        VBox root = new VBox(10);
         root.getChildren().addAll(textField, button);
 
         // Creating the scene
@@ -40,36 +75,6 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX!");
         stage.show();
-    }
-
-    private void sendToOllama(String text) {
-        // Constructing the request body
-        RequestBody body = new FormBody.Builder()
-                .add("text", text)
-                .build();
-
-        // Creating the request
-        Request request = new Request.Builder()
-                .url(OLLAMA_API_URL)
-                .post(body)
-                .build();
-
-        // Sending the request asynchronously
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    throw new IOException("Unexpected code " + response);
-                }
-                String responseBody = response.body().string();
-                System.out.println("Ollama API Response: " + responseBody);
-            }
-        });
     }
 
     public static void main(String[] args) {

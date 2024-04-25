@@ -8,6 +8,7 @@ module org.example.demo {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires okhttp3;
+    requires ollama4j;
 
     opens org.example.demo to javafx.fxml;
     exports org.example.demo;
