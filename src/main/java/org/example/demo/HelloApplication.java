@@ -1,9 +1,6 @@
 package org.example.demo;
 
 import io.github.amithkoujalgi.ollama4j.core.OllamaAPI;
-import io.github.amithkoujalgi.ollama4j.core.exceptions.OllamaBaseException;
-import io.github.amithkoujalgi.ollama4j.core.models.OllamaResult;
-import io.github.amithkoujalgi.ollama4j.core.utils.OptionsBuilder;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
 
 import java.io.IOException;
 
@@ -41,25 +38,26 @@ public class HelloApplication extends Application {
                 // TextArea to display generated query
                 TextArea queryArea = new TextArea();
 
-                String query = "Write sparql query for the following , **I'd like you to process the following SPARQL query, but I'm only interested in the raw query itself. Please don't provide explanations or additional information.**\n ``` ";
-                query += text;
-                query += "```";
-
-                // Send request and update TextArea
-                OllamaResult result = ollamaAPI.generate("tinyllama", query, new OptionsBuilder().build());
-                queryArea.setText(result.getResponse());
-
+//                String query = "Write sparql query for the following , **I'd like you to process the following SPARQL query, but I'm only interested in the raw query itself. Please don't provide explanations or additional information.**\n ``` ";
+//                query += text;
+//                query += "```";
+//
+//                // Send request and update TextArea
+//                OllamaResult result = ollamaAPI.generate("tinyllama", query, new OptionsBuilder().build());
+//                queryArea.setText(result.getResponse());
+                String res = GeminiApiRequest.SendRequest("bla bla");
+                System.out.println("Response inside main app: " + res);
                 // Layout update
                 VBox root = new VBox(10); // spacing between elements
                 root.getChildren().addAll(textField, button, queryArea);
 
                 // Update scene with queryArea
                 stage.setScene(new Scene(root, 320, 340)); // Adjust height for TextArea
-            } catch (OllamaBaseException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
+            }
+//            catch (OllamaBaseException e) {
+//                throw new RuntimeException(e);
+//            }
+            catch (Exception e) {
                 throw new RuntimeException(e);
             }
         });
