@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class GeminiApiRequest {
 
-    public static String SendRequest(String queryText) {
+    public static String generateContent(String queryText) {
         OkHttpClient client = new OkHttpClient();
 
         // Replace "YOUR_API_KEY" with your actual Google API key
