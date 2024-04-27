@@ -7,6 +7,7 @@ public class StringReplacement {
 
             // Replace occurrences of ``` or \n or \" with a space
             String replacedString = inputString.replaceAll("`|\\\\n|\\\\\"", " ");
+            replacedString = inputString.replaceAll("sparql", "");
 
             // Output the replaced string
             System.out.println("Replaced String:");

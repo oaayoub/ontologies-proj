@@ -46,6 +46,7 @@ public class GeminiApiRequest {
                 String text = candidatesArray.get(0).getAsJsonObject().getAsJsonObject("content").getAsJsonArray("parts").get(0).getAsJsonObject().get("text").getAsString();
                 System.out.println("OMAR ::: " + text);
                 text = text.replaceAll("```", "");
+                text = text.replaceAll("sparql", "");
 
                 return text;
             } else {
