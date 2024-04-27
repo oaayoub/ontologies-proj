@@ -26,18 +26,14 @@ public class ResultViewController implements Initializable {
         return htmlData;
     }
 
-
-
     public void setHtmlData(String htmlData) {
         this.htmlData = htmlData;
     }
-
 
     @FXML
     public void switchToMainScene(ActionEvent e) throws IOException {
         SceneController.switchToMainView(e);
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -32,13 +32,8 @@ public class MainController {
 
     @FXML
     protected void onExecuteBtnClick(ActionEvent event) throws IOException {
-        String testQuery = "SELECT ?person ?birthDate\n" +
-                "WHERE {\n" +
-                "  ?person rdf:type dbo:Person.\n" +
-                "  ?person dbo:birthDate ?birthDate.\n" +
-                "}\n" +
-                "LIMIT 10";
-        String res = DbpediaApiRequest.sendQuery(testQuery, null);
+        String query = queryTextAr.getText();
+        String res = DbpediaApiRequest.sendQuery(query, null);
         SceneController.switchToResultView(event, res);
     }
 }
