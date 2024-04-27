@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class HelloApplication extends Application {
+public class MainApplication extends Application {
 
     private static final String OLLAMA_API_URL = "http://localhost:11434/";
     private final GeminiApiRequest geminiApiRequest = new GeminiApiRequest();
