@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="MainView" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="397.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.MainController">
+   <children>
+      <Label text="Prompt" />
+      <HBox fillHeight="false" prefWidth="200.0">
+         <children>
+            <TextField fx:id="promptTextBx" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="generateBtn" mnemonicParsing="false" onAction="#onGenerateBtnClick" text="Generate" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets bottom="20.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Label layoutX="10.0" layoutY="10.0" text="Generated Query" />
+      <TextArea fx:id="queryTextAr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin></TextArea>
+      <VBox alignment="BOTTOM_RIGHT" VBox.vgrow="NEVER">
+         <children>
+            <Button fx:id="executeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExecuteBtnClick" prefWidth="100.0" text="Execute" VBox.vgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets left="10.0" right="10.0" />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+</VBox>
