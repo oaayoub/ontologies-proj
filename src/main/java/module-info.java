@@ -9,6 +9,7 @@ module org.example.demo {
     requires eu.hansolo.tilesfx;
     requires okhttp3;
     requires ollama4j;
+    requires com.google.gson;
 
     opens org.example.demo to javafx.fxml;
     exports org.example.demo;
