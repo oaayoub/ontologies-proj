@@ -15,8 +15,8 @@ public class GeminiApiRequest {
         // Replace "YOUR_API_KEY" with your actual Google API key
         String apiKey = "AIzaSyAXdsMLYA8_g95nBiPuQ35-wX4TSXbGea4";
         String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
-        String queryHeader = "write sparql query and assume that prefixes are defined and return only the sparql query without any extra characters and make sure it's valid and will return answer from dbpedia: ";
-        String query = queryHeader + queryText;
+        promptEngineringConstants prompts = new promptEngineringConstants();
+        String query = prompts.queryHeader +prompts.breaker+ prompts.turtleOfOntology +prompts.breaker + queryText;
         // JSON request body
         String jsonReq = "{\"contents\":[{\"parts\":[{\"text\":\"" + query + "\"}]}]}";
 
