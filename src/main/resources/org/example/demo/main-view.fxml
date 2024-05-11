@@ -28,14 +28,19 @@
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin></TextArea>
-      <VBox alignment="BOTTOM_RIGHT" VBox.vgrow="NEVER">
+      <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
          <children>
-            <Button fx:id="executeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExecuteBtnClick" prefWidth="100.0" text="Execute" VBox.vgrow="ALWAYS" />
+            <Button fx:id="refineBtn" mnemonicParsing="false" onAction="#onRefineBtnClick" prefWidth="100.0" text="Refine">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="executeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onExecuteBtnClick" prefWidth="100.0" text="Execute" />
          </children>
          <VBox.margin>
             <Insets top="20.0" />
          </VBox.margin>
-      </VBox>
+      </HBox>
    </children>
    <opaqueInsets>
       <Insets left="10.0" right="10.0" />

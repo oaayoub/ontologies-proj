@@ -22,8 +22,6 @@ public class MainController {
     @FXML
     private Button executeBtn;
 
-    private static final String OLLAMA_API_URL = "http://localhost:11434/";
-
     @FXML
     protected void onGenerateBtnClick() {
         String response = GeminiApiRequest.generateContent(promptTextBx.getText());
@@ -36,4 +34,11 @@ public class MainController {
         String res = DbpediaApiRequest.sendQuery(query, null);
         SceneController.switchToResultView(event, res);
     }
+    @FXML
+    protected void onRefineBtnClick(ActionEvent event) throws IOException {
+        String query = queryTextAr.getText();
+        String res = GeminiApiRequest.refineContent(query);
+        queryTextAr.setText(res);
+    }
+
 }
