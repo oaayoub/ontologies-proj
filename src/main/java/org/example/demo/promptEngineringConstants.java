@@ -2,7 +2,7 @@ package org.example.demo;
 
 public class promptEngineringConstants {
     String breaker = "                           ````````````````                      ";
-    String queryHeader = "write sparql query and assume that prefixes are defined and return only the sparql query without any extra characters and make sure it's valid and will return answer from dbpedia: ";
+    String queryHeader = "write sparql query and define the prefixes needed accordingly and return only the sparql query without any extra characters and make sure it's valid and will return answer from the defined ontology: ";
     String querySamples = "Common prefixes:\n" +
             "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
             "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +

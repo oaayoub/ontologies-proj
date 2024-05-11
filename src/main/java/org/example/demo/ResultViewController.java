@@ -38,6 +38,7 @@ public class ResultViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         WebEngine engine = this.webView.getEngine();
+        engine.setJavaScriptEnabled(true);
         engine.loadContent(getHtmlData());
     }
 }
