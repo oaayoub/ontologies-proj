@@ -16,7 +16,7 @@ public class GeminiApiRequest {
         String apiKey = "AIzaSyAXdsMLYA8_g95nBiPuQ35-wX4TSXbGea4";
         String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
         promptEngineringConstants prompts = new promptEngineringConstants();
-        String query = prompts.queryHeader +prompts.breaker+ prompts.turtleOfOntology +prompts.breaker + queryText;
+        String query = prompts.querySamples + prompts.breaker + prompts.queryHeader +prompts.breaker+ prompts.turtleOfOntology +prompts.breaker + queryText;
         // JSON request body
         String jsonReq = "{\"contents\":[{\"parts\":[{\"text\":\"" + query + "\"}]}]}";
 
