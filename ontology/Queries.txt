@@ -4,7 +4,6 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX uri:<http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#>
 
-
 Query 1:
 ---------------------
 SELECT  (str(?x) as ?label0) (str(?y) as ?label1) (str(?z) as ?label2)

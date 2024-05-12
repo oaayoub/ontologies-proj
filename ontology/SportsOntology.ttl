@@ -4,50 +4,50 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology> .
+@base <http://localhost:3030/#/dataset/SportsOntology> .
 
-<http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology> rdf:type owl:Ontology .
+<http://localhost:3030/#/dataset/SportsOntology> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#belongs_to
+###  http://localhost:3030/#/dataset/SportsOntology#belongs_to
 :belongs_to rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Athletes ;
             rdfs:range :Teams .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#coached_by
+###  http://localhost:3030/#/dataset/SportsOntology#coached_by
 :coached_by rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain :Teams ;
             rdfs:range :Coach .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#defeated_by
+###  http://localhost:3030/#/dataset/SportsOntology#defeated_by
 :defeated_by rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf owl:topObjectProperty ;
              rdfs:domain :Teams ;
              rdfs:range :Teams .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#has_home_venue
+###  http://localhost:3030/#/dataset/SportsOntology#has_home_venue
 :has_home_venue rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Teams ;
                 rdfs:range :Venues .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#participates_in
+###  http://localhost:3030/#/dataset/SportsOntology#participates_in
 :participates_in rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf owl:topObjectProperty ;
                  rdfs:domain :Teams ;
                  rdfs:range :Competitions .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#takes_place_at
+###  http://localhost:3030/#/dataset/SportsOntology#takes_place_at
 :takes_place_at rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain :Competitions ;
@@ -58,14 +58,14 @@
 #    Data properties
 #################################################################
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Address
+###  http://localhost:3030/#/dataset/SportsOntology#Address
 :Address rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain :Venues ;
          rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Age
+###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Age
 :Athlete_Age rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :Athletes ,
@@ -83,21 +83,21 @@
              rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Name
+###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Name
 :Athlete_Name rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain :Athletes ;
               rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Nationality
+###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Nationality
 :Athlete_Nationality rdf:type owl:DatatypeProperty ;
                      rdfs:subPropertyOf owl:topDataProperty ;
                      rdfs:domain :Athletes ;
                      rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Salary
+###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Salary
 :Athlete_Salary rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
                 rdfs:domain :Athletes ,
@@ -115,7 +115,7 @@
                 rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Budget
+###  http://localhost:3030/#/dataset/SportsOntology#Budget
 :Budget rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
         rdfs:domain :Teams ,
@@ -133,7 +133,7 @@
         rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Capacity
+###  http://localhost:3030/#/dataset/SportsOntology#Capacity
 :Capacity rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :Venues ,
@@ -151,7 +151,7 @@
           rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Age
+###  http://localhost:3030/#/dataset/SportsOntology#Coach_Age
 :Coach_Age rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :Coach ,
@@ -169,21 +169,21 @@
            rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Name
+###  http://localhost:3030/#/dataset/SportsOntology#Coach_Name
 :Coach_Name rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain :Coach ;
             rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Nationality
+###  http://localhost:3030/#/dataset/SportsOntology#Coach_Nationality
 :Coach_Nationality rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:domain :Coach ;
                    rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Salary
+###  http://localhost:3030/#/dataset/SportsOntology#Coach_Salary
 :Coach_Salary rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain :Coach ,
@@ -201,14 +201,14 @@
               rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Competition_Name
+###  http://localhost:3030/#/dataset/SportsOntology#Competition_Name
 :Competition_Name rdf:type owl:DatatypeProperty ;
                   rdfs:subPropertyOf owl:topDataProperty ;
                   rdfs:domain :Competitions ;
                   rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Governing_body
+###  http://localhost:3030/#/dataset/SportsOntology#Governing_body
 :Governing_body rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
                 rdfs:domain :Competitions ,
@@ -238,14 +238,14 @@
                 rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Height
+###  http://localhost:3030/#/dataset/SportsOntology#Height
 :Height rdf:type owl:DatatypeProperty ;
         rdfs:subPropertyOf owl:topDataProperty ;
         rdfs:domain :Athletes ;
         rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Number_of_participants
+###  http://localhost:3030/#/dataset/SportsOntology#Number_of_participants
 :Number_of_participants rdf:type owl:DatatypeProperty ;
                         rdfs:subPropertyOf owl:topDataProperty ;
                         rdfs:domain :Competitions ,
@@ -263,7 +263,7 @@
                         rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Number_of_players
+###  http://localhost:3030/#/dataset/SportsOntology#Number_of_players
 :Number_of_players rdf:type owl:DatatypeProperty ;
                    rdfs:subPropertyOf owl:topDataProperty ;
                    rdfs:domain :Teams ,
@@ -281,7 +281,7 @@
                    rdfs:range xsd:integer .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Prize_money
+###  http://localhost:3030/#/dataset/SportsOntology#Prize_money
 :Prize_money rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :Competitions ,
@@ -299,14 +299,14 @@
              rdfs:range xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Team_Name
+###  http://localhost:3030/#/dataset/SportsOntology#Team_Name
 :Team_Name rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :Teams ;
            rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Venue_Name
+###  http://localhost:3030/#/dataset/SportsOntology#Venue_Name
 :Venue_Name rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:domain :Venues ;
@@ -317,7 +317,7 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athletes
+###  http://localhost:3030/#/dataset/SportsOntology#Athletes
 :Athletes rdf:type owl:Class ;
           owl:equivalentClass [ rdf:type owl:Restriction ;
                                 owl:onProperty :belongs_to ;
@@ -327,12 +327,12 @@
           rdfs:subClassOf :Sports .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach
+###  http://localhost:3030/#/dataset/SportsOntology#Coach
 :Coach rdf:type owl:Class ;
        rdfs:subClassOf :Sports .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Competitions
+###  http://localhost:3030/#/dataset/SportsOntology#Competitions
 :Competitions rdf:type owl:Class ;
               owl:equivalentClass [ rdf:type owl:Restriction ;
                                     owl:onProperty :takes_place_at ;
@@ -342,11 +342,11 @@
               rdfs:subClassOf :Sports .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Sports
+###  http://localhost:3030/#/dataset/SportsOntology#Sports
 :Sports rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Teams
+###  http://localhost:3030/#/dataset/SportsOntology#Teams
 :Teams rdf:type owl:Class ;
        owl:equivalentClass [ rdf:type owl:Restriction ;
                              owl:onProperty :participates_in ;
@@ -376,7 +376,7 @@
        rdfs:subClassOf :Sports .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Venues
+###  http://localhost:3030/#/dataset/SportsOntology#Venues
 :Venues rdf:type owl:Class ;
         rdfs:subClassOf :Sports .
 
@@ -385,7 +385,7 @@
 #    Individuals
 #################################################################
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Anfield
+###  http://localhost:3030/#/dataset/SportsOntology#Anfield
 :Anfield rdf:type owl:NamedIndividual ,
                   :Venues ;
          :Address "Liverpool" ;
@@ -393,7 +393,7 @@
          :Venue_Name "Anfield" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Arsenal
+###  http://localhost:3030/#/dataset/SportsOntology#Arsenal
 :Arsenal rdf:type owl:NamedIndividual ,
                   :Teams ;
          :coached_by :CoachArteta ;
@@ -406,7 +406,7 @@
          :Team_Name "Arsenal" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Azpilicueta
+###  http://localhost:3030/#/dataset/SportsOntology#Azpilicueta
 :Azpilicueta rdf:type owl:NamedIndividual ,
                       :Athletes ;
              :belongs_to :Chelsea ;
@@ -416,7 +416,7 @@
              :Athlete_Salary "1.2E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ChampionsLeague
+###  http://localhost:3030/#/dataset/SportsOntology#ChampionsLeague
 :ChampionsLeague rdf:type owl:NamedIndividual ,
                           :Competitions ;
                  :takes_place_at :Anfield ;
@@ -426,7 +426,7 @@
                  :Prize_money "1.0E9"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Chelsea
+###  http://localhost:3030/#/dataset/SportsOntology#Chelsea
 :Chelsea rdf:type owl:NamedIndividual ,
                   :Teams ;
          :coached_by :CoachTuchel ;
@@ -441,7 +441,7 @@
          :Team_Name "Chelsea" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachArteta
+###  http://localhost:3030/#/dataset/SportsOntology#CoachArteta
 :CoachArteta rdf:type owl:NamedIndividual ,
                       :Coach ;
              :Coach_Age 45 ;
@@ -450,7 +450,7 @@
              :Coach_Salary "6000000.0"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachGuardiola
+###  http://localhost:3030/#/dataset/SportsOntology#CoachGuardiola
 :CoachGuardiola rdf:type owl:NamedIndividual ,
                          :Coach ;
                 :Coach_Age 55 ;
@@ -459,7 +459,7 @@
                 :Coach_Salary "1.5E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachKlopp
+###  http://localhost:3030/#/dataset/SportsOntology#CoachKlopp
 :CoachKlopp rdf:type owl:NamedIndividual ,
                      :Coach ;
             :Coach_Age 53 ;
@@ -468,7 +468,7 @@
             :Coach_Salary "1.0E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachMourinho
+###  http://localhost:3030/#/dataset/SportsOntology#CoachMourinho
 :CoachMourinho rdf:type owl:NamedIndividual ,
                         :Coach ;
                :Coach_Age 60 ;
@@ -477,7 +477,7 @@
                :Coach_Salary "1.8E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachTuchel
+###  http://localhost:3030/#/dataset/SportsOntology#CoachTuchel
 :CoachTuchel rdf:type owl:NamedIndividual ,
                       :Coach ;
              :Coach_Age 42 ;
@@ -486,7 +486,7 @@
              :Coach_Salary "1.6E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#DeBruyne
+###  http://localhost:3030/#/dataset/SportsOntology#DeBruyne
 :DeBruyne rdf:type owl:NamedIndividual ,
                    :Athletes ;
           :belongs_to :ManCity ;
@@ -496,7 +496,7 @@
           :Athlete_Salary "3.0E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Emirates
+###  http://localhost:3030/#/dataset/SportsOntology#Emirates
 :Emirates rdf:type owl:NamedIndividual ,
                    :Venues ;
           :Address "London" ;
@@ -504,7 +504,7 @@
           :Venue_Name "Emirates" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Etihad
+###  http://localhost:3030/#/dataset/SportsOntology#Etihad
 :Etihad rdf:type owl:NamedIndividual ,
                  :Venues ;
         :Address "Manchester" ;
@@ -512,7 +512,7 @@
         :Venue_Name "Etihad" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Firmino
+###  http://localhost:3030/#/dataset/SportsOntology#Firmino
 :Firmino rdf:type owl:NamedIndividual ,
                   :Athletes ;
          :belongs_to :Liverpool ;
@@ -522,7 +522,7 @@
          :Athlete_Salary "1.5E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Haaland
+###  http://localhost:3030/#/dataset/SportsOntology#Haaland
 :Haaland rdf:type owl:NamedIndividual ,
                   :Athletes ;
          :belongs_to :ManCity ;
@@ -533,7 +533,7 @@
          :Height "1.94"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Kante
+###  http://localhost:3030/#/dataset/SportsOntology#Kante
 :Kante rdf:type owl:NamedIndividual ,
                 :Athletes ;
        :belongs_to :Chelsea ;
@@ -543,7 +543,7 @@
        :Athlete_Salary "2.5E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Liverpool
+###  http://localhost:3030/#/dataset/SportsOntology#Liverpool
 :Liverpool rdf:type owl:NamedIndividual ,
                     :Teams ;
            :coached_by :CoachKlopp ;
@@ -557,7 +557,7 @@
            :Team_Name "Liverpool" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ManCity
+###  http://localhost:3030/#/dataset/SportsOntology#ManCity
 :ManCity rdf:type owl:NamedIndividual ,
                   :Teams ;
          :coached_by :CoachGuardiola ;
@@ -570,7 +570,7 @@
          :Team_Name "ManCity" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ManUtd
+###  http://localhost:3030/#/dataset/SportsOntology#ManUtd
 :ManUtd rdf:type owl:NamedIndividual ,
                  :Teams ;
         :coached_by :CoachMourinho ;
@@ -584,7 +584,7 @@
         :Team_Name "ManUtd" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Odegaard
+###  http://localhost:3030/#/dataset/SportsOntology#Odegaard
 :Odegaard rdf:type owl:NamedIndividual ,
                    :Athletes ;
           :belongs_to :Arsenal ;
@@ -594,7 +594,7 @@
           :Athlete_Salary "1.3E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#OldTrafford
+###  http://localhost:3030/#/dataset/SportsOntology#OldTrafford
 :OldTrafford rdf:type owl:NamedIndividual ,
                       :Venues ;
              :Address "Manchester" ;
@@ -602,7 +602,7 @@
              :Venue_Name "OldTrafford" .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#PremierLeague
+###  http://localhost:3030/#/dataset/SportsOntology#PremierLeague
 :PremierLeague rdf:type owl:NamedIndividual ,
                         :Competitions ;
                :takes_place_at :Anfield ,
@@ -616,7 +616,7 @@
                :Prize_money "9.0E8"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Ramsdale
+###  http://localhost:3030/#/dataset/SportsOntology#Ramsdale
 :Ramsdale rdf:type owl:NamedIndividual ,
                    :Athletes ;
           :belongs_to :Arsenal ;
@@ -626,7 +626,7 @@
           :Athlete_Salary "5000000.0"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Ronaldo
+###  http://localhost:3030/#/dataset/SportsOntology#Ronaldo
 :Ronaldo rdf:type owl:NamedIndividual ,
                   :Athletes ;
          :belongs_to :ManUtd ;
@@ -636,7 +636,7 @@
          :Athlete_Salary "1.0E8"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Rooney
+###  http://localhost:3030/#/dataset/SportsOntology#Rooney
 :Rooney rdf:type owl:NamedIndividual ,
                  :Athletes ;
         :belongs_to :ManUtd ;
@@ -646,7 +646,7 @@
         :Athlete_Salary "1.7E7"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Salah
+###  http://localhost:3030/#/dataset/SportsOntology#Salah
 :Salah rdf:type owl:NamedIndividual ,
                 :Athletes ;
        :belongs_to :Liverpool ;
@@ -657,7 +657,7 @@
        :Height "1.75"^^xsd:float .
 
 
-###  http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#StamfordBridge
+###  http://localhost:3030/#/dataset/SportsOntology#StamfordBridge
 :StamfordBridge rdf:type owl:NamedIndividual ,
                          :Venues ;
                 :Address "London" ;

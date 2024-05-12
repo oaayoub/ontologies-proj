@@ -1,12 +1,681 @@
 package org.example.demo;
 
 public class promptEngineringConstants {
-    String breaker = "                           ````````````````                      ";
-    String queryHeader = "write sparql query and define the prefixes needed accordingly and return only the sparql query without any extra characters and make sure it's valid and will return answer from the defined ontology: ";
-    String turtlePt1 = " this is the turtle I'm using :: @prefix:<http://localhost:3030/#/dataset/SportsOntology>.@prefixowl:<http://www.w3.org/2002/07/owl#>.@prefixrdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.@prefixxml:<http://www.w3.org/XML/1998/namespace>.@prefixxsd:<http://www.w3.org/2001/XMLSchema#>.@prefixrdfs:<http://www.w3.org/2000/01/rdf-schema#>.@base<http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology>.<http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology>rdf:typeowl:Ontology.#ObjectProperties#http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#belongs_to:belongs_tordf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Athletes;rdfs:range:Teams.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#coached_by:coached_byrdf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Teams;rdfs:range:Coach.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#defeated_by:defeated_byrdf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Teams;rdfs:range:Teams.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#has_home_venue:has_home_venuerdf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Teams;rdfs:range:Venues.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#participates_in:participates_inrdf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Teams;rdfs:range:Competitions.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#takes_place_at:takes_place_atrdf:typeowl:ObjectProperty;rdfs:subPropertyOfowl:topObjectProperty;rdfs:domain:Competitions;rdfs:range:Venues." ;
-    String turtlePt2 = """
-            #Dataproperties#http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Address:Addressrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Venues;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Age:Athlete_Agerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Athletes,[rdf:typeowl:Restriction;owl:onProperty:Athlete_Age;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:integer;owl:withRestrictions([xsd:minExclusive15][xsd:maxInclusive100])]];rdfs:rangexsd:integer.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Name:Athlete_Namerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Athletes;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Nationality:Athlete_Nationalityrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Athletes;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athlete_Salary:Athlete_Salaryrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Athletes,[rdf:typeowl:Restriction;owl:onProperty:Athlete_Salary;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:float;owl:withRestrictions([xsd:minExclusive"10000.0"^^xsd:float][xsd:maxInclusive"5.0E8"^^xsd:float])]];rdfs:rangexsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Budget:Budgetrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Teams,[rdf:typeowl:Restriction;owl:onProperty:Budget;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:float;owl:withRestrictions([xsd:minExclusive"1000000.0"^^xsd:float][xsd:maxInclusive"2.0E9"^^xsd:float])]];rdfs:rangexsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Capacity:Capacityrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Venues,[rdf:typeowl:Restriction;owl:onProperty:Capacity;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:integer;owl:withRestrictions([xsd:minExclusive5000][xsd:maxInclusive150000])]];rdfs:rangexsd:integer.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Age:Coach_Agerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Coach,[rdf:typeowl:Restriction;owl:onProperty:Coach_Age;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:integer;owl:withRestrictions([xsd:minExclusive15][xsd:maxInclusive100])]];rdfs:rangexsd:integer.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Name:Coach_Namerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Coach;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Nationality:Coach_Nationalityrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Coach;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach_Salary:Coach_Salaryrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Coach,[rdf:typeowl:Restriction;owl:onProperty:Coach_Salary;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:float;owl:withRestrictions([xsd:minExclusive"10000.0"^^xsd:float][xsd:maxInclusive"5.0E8"^^xsd:float])]];rdfs:rangexsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Competition_Name:Competition_Namerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Competitions;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Governing_body:Governing_bodyrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Competitions,[rdf:typeowl:Class;owl:unionOf([rdf:typeowl:Restriction;owl:onProperty:Governing_body;owl:hasValue"AFC"][rdf:typeowl:Restriction;owl:onProperty:Governing_body;owl:hasValue"CAF"][rdf:typeowl:Restriction;owl:onProperty:Governing_body;owl:hasValue"CONMEBOL"][rdf:typeowl:Restriction;owl:onProperty:Governing_body;owl:hasValue"LIBERTADORES"][rdf:typeowl:Restriction;owl:onProperty:Governing_body;owl:hasValue"UEFA"])];rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Height:Heightrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Athletes;rdfs:rangexsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Number_of_participants:Number_of_participantsrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Competitions,[rdf:typeowl:Restriction;owl:onProperty:Number_of_participants;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:integer;owl:withRestrictions([xsd:minInclusive2][xsd:maxInclusive256])]];rdfs:rangexsd:integer.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Number_of_players:Number_of_playersrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Teams,[rdf:typeowl:Restriction;owl:onProperty:Number_of_players;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:integer;owl:withRestrictions([xsd:minInclusive1][xsd:maxInclusive100])]];rdfs:rangexsd:integer.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Prize_money:Prize_moneyrdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Competitions,[rdf:typeowl:Restriction;owl:onProperty:Prize_money;owl:someValuesFrom[rdf:typerdfs:Datatype;owl:onDatatypexsd:float;owl:withRestrictions([xsd:minExclusive"100000.0"^^xsd:float][xsd:maxInclusive"1.0E9"^^xsd:float])]];rdfs:rangexsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Team_Name:Team_Namerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Teams;rdfs:rangexsd:string.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Venue_Name:Venue_Namerdf:typeowl:DatatypeProperty;rdfs:subPropertyOfowl:topDataProperty;rdfs:domain:Venues;rdfs:rangexsd:string.
+    String breaker = "\n";
+    String queryHeader = "write sparql query for the given prompt and define all the prefixes needed accordingly and return only the sparql query without any extra characters and make sure it's valid and will return answer from the defined ontology: ";
+
+    String turtleOfOntology2 = """
+            Ontology:
+            @prefix : <http://localhost:3030/#/dataset/SportsOntology> .
+            @prefix owl: <http://www.w3.org/2002/07/owl#> .
+            @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+            @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+            @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+            @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+            @base <http://localhost:3030/#/dataset/SportsOntology> .
+                        
+            <http://localhost:3030/#/dataset/SportsOntology> rdf:type owl:Ontology .
+                        
+            #################################################################
+            #    Object Properties
+            #################################################################
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#belongs_to
+            :belongs_to rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:domain :Athletes ;
+                        rdfs:range :Teams .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#coached_by
+            :coached_by rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:domain :Teams ;
+                        rdfs:range :Coach .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#defeated_by
+            :defeated_by rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf owl:topObjectProperty ;
+                         rdfs:domain :Teams ;
+                         rdfs:range :Teams .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#has_home_venue
+            :has_home_venue rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain :Teams ;
+                            rdfs:range :Venues .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#participates_in
+            :participates_in rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf owl:topObjectProperty ;
+                             rdfs:domain :Teams ;
+                             rdfs:range :Competitions .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#takes_place_at
+            :takes_place_at rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain :Competitions ;
+                            rdfs:range :Venues .
+                        
+                        
+            #################################################################
+            #    Data properties
+            #################################################################
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Address
+            :Address rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :Venues ;
+                     rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Age
+            :Athlete_Age rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:domain :Athletes ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :Athlete_Age ;
+                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                            owl:onDatatype xsd:integer ;
+                                                            owl:withRestrictions ( [ xsd:minExclusive 15
+                                                                                   ]
+                                                                                   [ xsd:maxInclusive 100
+                                                                                   ]
+                                                                                 )
+                                                          ]
+                                     ] ;
+                         rdfs:range xsd:integer .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Name
+            :Athlete_Name rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :Athletes ;
+                          rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Nationality
+            :Athlete_Nationality rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf owl:topDataProperty ;
+                                 rdfs:domain :Athletes ;
+                                 rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Athlete_Salary
+            :Athlete_Salary rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:domain :Athletes ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :Athlete_Salary ;
+                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                               owl:onDatatype xsd:float ;
+                                                               owl:withRestrictions ( [ xsd:minExclusive '10000.0'^^xsd:float
+                                                                                      ]
+                                                                                      [ xsd:maxInclusive '5.0E8'^^xsd:float
+                                                                                      ]
+                                                                                    )
+                                                             ]
+                                        ] ;
+                            rdfs:range xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Budget
+            :Budget rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Teams ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :Budget ;
+                                  owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                       owl:onDatatype xsd:float ;
+                                                       owl:withRestrictions ( [ xsd:minExclusive '1000000.0'^^xsd:float
+                                                                              ]
+                                                                              [ xsd:maxInclusive '2.0E9'^^xsd:float
+                                                                              ]
+                                                                            )
+                                                     ]
+                                ] ;
+                    rdfs:range xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Capacity
+            :Capacity rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :Venues ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :Capacity ;
+                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                         owl:onDatatype xsd:integer ;
+                                                         owl:withRestrictions ( [ xsd:minExclusive 5000
+                                                                                ]
+                                                                                [ xsd:maxInclusive 150000
+                                                                                ]
+                                                                              )
+                                                       ]
+                                  ] ;
+                      rdfs:range xsd:integer .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Coach_Age
+            :Coach_Age rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Coach ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :Coach_Age ;
+                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                          owl:onDatatype xsd:integer ;
+                                                          owl:withRestrictions ( [ xsd:minExclusive 15
+                                                                                 ]
+                                                                                 [ xsd:maxInclusive 100
+                                                                                 ]
+                                                                               )
+                                                        ]
+                                   ] ;
+                       rdfs:range xsd:integer .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Coach_Name
+            :Coach_Name rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Coach ;
+                        rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Coach_Nationality
+            :Coach_Nationality rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Coach ;
+                               rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Coach_Salary
+            :Coach_Salary rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :Coach ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :Coach_Salary ;
+                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                             owl:onDatatype xsd:float ;
+                                                             owl:withRestrictions ( [ xsd:minExclusive '10000.0'^^xsd:float
+                                                                                    ]
+                                                                                    [ xsd:maxInclusive '5.0E8'^^xsd:float
+                                                                                    ]
+                                                                                  )
+                                                           ]
+                                      ] ;
+                          rdfs:range xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Competition_Name
+            :Competition_Name rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf owl:topDataProperty ;
+                              rdfs:domain :Competitions ;
+                              rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Governing_body
+            :Governing_body rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:domain :Competitions ,
+                                        [ rdf:type owl:Class ;
+                                          owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :Governing_body ;
+                                                          owl:hasValue 'AFC'
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :Governing_body ;
+                                                          owl:hasValue 'CAF'
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :Governing_body ;
+                                                          owl:hasValue 'CONMEBOL'
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :Governing_body ;
+                                                          owl:hasValue 'LIBERTADORES'
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :Governing_body ;
+                                                          owl:hasValue 'UEFA'
+                                                        ]
+                                                      )
+                                        ] ;
+                            rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Height
+            :Height rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Athletes ;
+                    rdfs:range xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Number_of_participants
+            :Number_of_participants rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf owl:topDataProperty ;
+                                    rdfs:domain :Competitions ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :Number_of_participants ;
+                                                  owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                       owl:onDatatype xsd:integer ;
+                                                                       owl:withRestrictions ( [ xsd:minInclusive 2
+                                                                                              ]
+                                                                                              [ xsd:maxInclusive 256
+                                                                                              ]
+                                                                                            )
+                                                                     ]
+                                                ] ;
+                                    rdfs:range xsd:integer .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Number_of_players
+            :Number_of_players rdf:type owl:DatatypeProperty ;
+                               rdfs:subPropertyOf owl:topDataProperty ;
+                               rdfs:domain :Teams ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :Number_of_players ;
+                                             owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                  owl:onDatatype xsd:integer ;
+                                                                  owl:withRestrictions ( [ xsd:minInclusive 1
+                                                                                         ]
+                                                                                         [ xsd:maxInclusive 100
+                                                                                         ]
+                                                                                       )
+                                                                ]
+                                           ] ;
+                               rdfs:range xsd:integer .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Prize_money
+            :Prize_money rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdfs:domain :Competitions ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :Prize_money ;
+                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                            owl:onDatatype xsd:float ;
+                                                            owl:withRestrictions ( [ xsd:minExclusive '100000.0'^^xsd:float
+                                                                                   ]
+                                                                                   [ xsd:maxInclusive '1.0E9'^^xsd:float
+                                                                                   ]
+                                                                                 )
+                                                          ]
+                                     ] ;
+                         rdfs:range xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Team_Name
+            :Team_Name rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Teams ;
+                       rdfs:range xsd:string .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Venue_Name
+            :Venue_Name rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Venues ;
+                        rdfs:range xsd:string .
+                        
+                        
+            #################################################################
+            #    Classes
+            #################################################################
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Athletes
+            :Athletes rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :belongs_to ;
+                                            owl:qualifiedCardinality '1'^^xsd:nonNegativeInteger ;
+                                            owl:onClass :Teams
+                                          ] ;
+                      rdfs:subClassOf :Sports .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Coach
+            :Coach rdf:type owl:Class ;
+                   rdfs:subClassOf :Sports .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Competitions
+            :Competitions rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty :takes_place_at ;
+                                                owl:minQualifiedCardinality '1'^^xsd:nonNegativeInteger ;
+                                                owl:onClass :Venues
+                                              ] ;
+                          rdfs:subClassOf :Sports .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Sports
+            :Sports rdf:type owl:Class .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Teams
+            :Teams rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :participates_in ;
+                                         owl:minQualifiedCardinality '1'^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Competitions
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :coached_by ;
+                                         owl:qualifiedCardinality '1'^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Coach
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :has_home_venue ;
+                                         owl:qualifiedCardinality '1'^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Venues
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :defeated_by ;
+                                         owl:maxQualifiedCardinality '20'^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Teams
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :participates_in ;
+                                         owl:maxQualifiedCardinality '7'^^xsd:nonNegativeInteger ;
+                                         owl:onClass :Competitions
+                                       ] ;
+                   rdfs:subClassOf :Sports .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Venues
+            :Venues rdf:type owl:Class ;
+                    rdfs:subClassOf :Sports .
+                        
+                        
+            #################################################################
+            #    Individuals
+            #################################################################
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Anfield
+            :Anfield rdf:type owl:NamedIndividual ,
+                              :Venues ;
+                     :Address 'Liverpool' ;
+                     :Capacity 50000 ;
+                     :Venue_Name 'Anfield' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Arsenal
+            :Arsenal rdf:type owl:NamedIndividual ,
+                              :Teams ;
+                     :coached_by :CoachArteta ;
+                     :defeated_by :ManCity ;
+                     :has_home_venue :Emirates ;
+                     :participates_in :ChampionsLeague ,
+                                      :PremierLeague ;
+                     :Budget '3.0E8'^^xsd:float ;
+                     :Number_of_players 36 ;
+                     :Team_Name 'Arsenal' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Azpilicueta
+            :Azpilicueta rdf:type owl:NamedIndividual ,
+                                  :Athletes ;
+                         :belongs_to :Chelsea ;
+                         :Athlete_Age 32 ;
+                         :Athlete_Name 'Azpilicueta' ;
+                         :Athlete_Nationality 'Spanish' ;
+                         :Athlete_Salary '1.2E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#ChampionsLeague
+            :ChampionsLeague rdf:type owl:NamedIndividual ,
+                                      :Competitions ;
+                             :takes_place_at :Anfield ;
+                             :Competition_Name 'ChampionsLeague' ;
+                             :Governing_body 'UEFA' ;
+                             :Number_of_participants 32 ;
+                             :Prize_money '1.0E9'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Chelsea
+            :Chelsea rdf:type owl:NamedIndividual ,
+                              :Teams ;
+                     :coached_by :CoachTuchel ;
+                     :defeated_by :Arsenal ,
+                                  :Liverpool ,
+                                  :ManCity ;
+                     :has_home_venue :StamfordBridge ;
+                     :participates_in :ChampionsLeague ,
+                                      :PremierLeague ;
+                     :Budget '6.0E8'^^xsd:float ;
+                     :Number_of_players 55 ;
+                     :Team_Name 'Chelsea' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#CoachArteta
+            :CoachArteta rdf:type owl:NamedIndividual ,
+                                  :Coach ;
+                         :Coach_Age 45 ;
+                         :Coach_Name 'CoachArteta' ;
+                         :Coach_Nationality 'Spanish' ;
+                         :Coach_Salary '6000000.0'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#CoachGuardiola
+            :CoachGuardiola rdf:type owl:NamedIndividual ,
+                                     :Coach ;
+                            :Coach_Age 55 ;
+                            :Coach_Name 'CoachGuardiola' ;
+                            :Coach_Nationality 'Spanish' ;
+                            :Coach_Salary '1.5E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#CoachKlopp
+            :CoachKlopp rdf:type owl:NamedIndividual ,
+                                 :Coach ;
+                        :Coach_Age 53 ;
+                        :Coach_Name 'CoachKlopp' ;
+                        :Coach_Nationality 'German' ;
+                        :Coach_Salary '1.0E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#CoachMourinho
+            :CoachMourinho rdf:type owl:NamedIndividual ,
+                                    :Coach ;
+                           :Coach_Age 60 ;
+                           :Coach_Name 'CoachMourinho' ;
+                           :Coach_Nationality 'Portuguese' ;
+                           :Coach_Salary '1.8E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#CoachTuchel
+            :CoachTuchel rdf:type owl:NamedIndividual ,
+                                  :Coach ;
+                         :Coach_Age 42 ;
+                         :Coach_Name 'CoachTuchel' ;
+                         :Coach_Nationality 'German' ;
+                         :Coach_Salary '1.6E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#DeBruyne
+            :DeBruyne rdf:type owl:NamedIndividual ,
+                               :Athletes ;
+                      :belongs_to :ManCity ;
+                      :Athlete_Age 31 ;
+                      :Athlete_Name 'DeBruyne' ;
+                      :Athlete_Nationality 'Belgian' ;
+                      :Athlete_Salary '3.0E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Emirates
+            :Emirates rdf:type owl:NamedIndividual ,
+                               :Venues ;
+                      :Address 'London' ;
+                      :Capacity 60000 ;
+                      :Venue_Name 'Emirates' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Etihad
+            :Etihad rdf:type owl:NamedIndividual ,
+                             :Venues ;
+                    :Address 'Manchester' ;
+                    :Capacity 55000 ;
+                    :Venue_Name 'Etihad' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Firmino
+            :Firmino rdf:type owl:NamedIndividual ,
+                              :Athletes ;
+                     :belongs_to :Liverpool ;
+                     :Athlete_Age 33 ;
+                     :Athlete_Name 'Firmino' ;
+                     :Athlete_Nationality 'Brazilian' ;
+                     :Athlete_Salary '1.5E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Haaland
+            :Haaland rdf:type owl:NamedIndividual ,
+                              :Athletes ;
+                     :belongs_to :ManCity ;
+                     :Athlete_Age 21 ;
+                     :Athlete_Name 'Haaland' ;
+                     :Athlete_Nationality 'Norwegian' ;
+                     :Athlete_Salary '4.0E7'^^xsd:float ;
+                     :Height '1.94'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Kante
+            :Kante rdf:type owl:NamedIndividual ,
+                            :Athletes ;
+                   :belongs_to :Chelsea ;
+                   :Athlete_Age 32 ;
+                   :Athlete_Name 'Kante' ;
+                   :Athlete_Nationality 'French' ;
+                   :Athlete_Salary '2.5E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Liverpool
+            :Liverpool rdf:type owl:NamedIndividual ,
+                                :Teams ;
+                       :coached_by :CoachKlopp ;
+                       :defeated_by :Arsenal ,
+                                    :ManUtd ;
+                       :has_home_venue :Anfield ;
+                       :participates_in :ChampionsLeague ,
+                                        :PremierLeague ;
+                       :Budget '2.5E8'^^xsd:float ;
+                       :Number_of_players 30 ;
+                       :Team_Name 'Liverpool' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#ManCity
+            :ManCity rdf:type owl:NamedIndividual ,
+                              :Teams ;
+                     :coached_by :CoachGuardiola ;
+                     :defeated_by :Liverpool ;
+                     :has_home_venue :Etihad ;
+                     :participates_in :ChampionsLeague ,
+                                      :PremierLeague ;
+                     :Budget '7.0E8'^^xsd:float ;
+                     :Number_of_players 40 ;
+                     :Team_Name 'ManCity' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#ManUtd
+            :ManUtd rdf:type owl:NamedIndividual ,
+                             :Teams ;
+                    :coached_by :CoachMourinho ;
+                    :defeated_by :Arsenal ,
+                                 :Liverpool ,
+                                 :ManCity ;
+                    :has_home_venue :OldTrafford ;
+                    :participates_in :PremierLeague ;
+                    :Budget '4.6E8'^^xsd:float ;
+                    :Number_of_players 46 ;
+                    :Team_Name 'ManUtd' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Odegaard
+            :Odegaard rdf:type owl:NamedIndividual ,
+                               :Athletes ;
+                      :belongs_to :Arsenal ;
+                      :Athlete_Age 23 ;
+                      :Athlete_Name 'Odegaard' ;
+                      :Athlete_Nationality 'Norwegian' ;
+                      :Athlete_Salary '1.3E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#OldTrafford
+            :OldTrafford rdf:type owl:NamedIndividual ,
+                                  :Venues ;
+                         :Address 'Manchester' ;
+                         :Capacity 65000 ;
+                         :Venue_Name 'OldTrafford' .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#PremierLeague
+            :PremierLeague rdf:type owl:NamedIndividual ,
+                                    :Competitions ;
+                           :takes_place_at :Anfield ,
+                                           :Emirates ,
+                                           :Etihad ,
+                                           :OldTrafford ,
+                                           :StamfordBridge ;
+                           :Competition_Name 'PremierLeague' ;
+                           :Governing_body 'UEFA' ;
+                           :Number_of_participants 20 ;
+                           :Prize_money '9.0E8'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Ramsdale
+            :Ramsdale rdf:type owl:NamedIndividual ,
+                               :Athletes ;
+                      :belongs_to :Arsenal ;
+                      :Athlete_Age 24 ;
+                      :Athlete_Name 'Ramsdale' ;
+                      :Athlete_Nationality 'British' ;
+                      :Athlete_Salary '5000000.0'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Ronaldo
+            :Ronaldo rdf:type owl:NamedIndividual ,
+                              :Athletes ;
+                     :belongs_to :ManUtd ;
+                     :Athlete_Age 38 ;
+                     :Athlete_Name 'Ronaldo' ;
+                     :Athlete_Nationality 'Portuguese' ;
+                     :Athlete_Salary '1.0E8'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Rooney
+            :Rooney rdf:type owl:NamedIndividual ,
+                             :Athletes ;
+                    :belongs_to :ManUtd ;
+                    :Athlete_Age 40 ;
+                    :Athlete_Name 'Rooney' ;
+                    :Athlete_Nationality 'British' ;
+                    :Athlete_Salary '1.7E7'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#Salah
+            :Salah rdf:type owl:NamedIndividual ,
+                            :Athletes ;
+                   :belongs_to :Liverpool ;
+                   :Athlete_Age 31 ;
+                   :Athlete_Name 'Salah' ;
+                   :Athlete_Nationality 'Egyptian' ;
+                   :Athlete_Salary '3.1E7'^^xsd:float ;
+                   :Height '1.75'^^xsd:float .
+                        
+                        
+            ###  http://localhost:3030/#/dataset/SportsOntology#StamfordBridge
+            :StamfordBridge rdf:type owl:NamedIndividual ,
+                                     :Venues ;
+                            :Address 'London' ;
+                            :Capacity 45000 ;
+                            :Venue_Name 'StamfordBridge' .
+                        
+                        
+            ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+                        
+            
+            
             """;
-    String turtlePt3 = "#Classes#http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Athletes:Athletesrdf:typeowl:Class;owl:equivalentClass[rdf:typeowl:Restriction;owl:onProperty:belongs_to;owl:qualifiedCardinality 1 ^^xsd:nonNegativeInteger;owl:onClass:Teams];rdfs:subClassOf:Sports.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Coach:Coachrdf:typeowl:Class;rdfs:subClassOf:Sports.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Competitions:Competitionsrdf:typeowl:Class;owl:equivalentClass[rdf:typeowl:Restriction;owl:onProperty:takes_place_at;owl:minQualifiedCardinality 1 ^^xsd:nonNegativeInteger;owl:onClass:Venues];rdfs:subClassOf:Sports.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Sports:Sportsrdf:typeowl:Class.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Teams:Teamsrdf:typeowl:Class;owl:equivalentClass[rdf:typeowl:Restriction;owl:onProperty:participates_in;owl:minQualifiedCardinality 1 ^^xsd:nonNegativeInteger;owl:onClass:Competitions],[rdf:typeowl:Restriction;owl:onProperty:coached_by;owl:qualifiedCardinality 1 ^^xsd:nonNegativeInteger;owl:onClass:Coach],[rdf:typeowl:Restriction;owl:onProperty:has_home_venue;owl:qualifiedCardinality 1 ^^xsd:nonNegativeInteger;owl:onClass:Venues],[rdf:typeowl:Restriction;owl:onProperty:defeated_by;owl:maxQualifiedCardinality 20 ^^xsd:nonNegativeInteger;owl:onClass:Teams],[rdf:typeowl:Restriction;owl:onProperty:participates_in;owl:maxQualifiedCardinality 7 ^^xsd:nonNegativeInteger;owl:onClass:Competitions];rdfs:subClassOf:Sports.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Venues:Venuesrdf:typeowl:Class;rdfs:subClassOf:Sports.##################################################################Individuals####################################################################http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Anfield:Anfieldrdf:typeowl:NamedIndividual,:Venues;:Address Liverpool ;:Capacity50000;:Venue_Name Anfield .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Arsenal:Arsenalrdf:typeowl:NamedIndividual,:Teams;:coached_by:CoachArteta;:defeated_by:ManCity;:has_home_venue:Emirates;:participates_in:ChampionsLeague,:PremierLeague;:Budget 3.0E8 ^^xsd:float;:Number_of_players36;:Team_Name Arsenal .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Azpilicueta:Azpilicuetardf:typeowl:NamedIndividual,:Athletes;:belongs_to:Chelsea;:Athlete_Age32;:Athlete_Name Azpilicueta ;:Athlete_Nationality Spanish ;:Athlete_Salary 1.2E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ChampionsLeague:ChampionsLeaguerdf:typeowl:NamedIndividual,:Competitions;:takes_place_at:Anfield;:Competition_Name ChampionsLeague ;:Governing_body UEFA ;:Number_of_participants32;:Prize_money 1.0E9 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Chelsea:Chelseardf:typeowl:NamedIndividual,:Teams;:coached_by:CoachTuchel;:defeated_by:Arsenal,:Liverpool,:ManCity;:has_home_venue:StamfordBridge;:participates_in:ChampionsLeague,:PremierLeague;:Budget 6.0E8 ^^xsd:float;:Number_of_players55;:Team_Name Chelsea .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachArteta:CoachArtetardf:typeowl:NamedIndividual,:Coach;:Coach_Age45;:Coach_Name CoachArteta ;:Coach_Nationality Spanish ;:Coach_Salary 6000000.0 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachGuardiola:CoachGuardiolardf:typeowl:NamedIndividual,:Coach;:Coach_Age55;:Coach_Name CoachGuardiola ;:Coach_Nationality Spanish ;:Coach_Salary 1.5E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachKlopp:CoachKlopprdf:typeowl:NamedIndividual,:Coach;:Coach_Age53;:Coach_Name CoachKlopp ;:Coach_Nationality German ;:Coach_Salary 1.0E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachMourinho:CoachMourinhordf:typeowl:NamedIndividual,:Coach;:Coach_Age60;:Coach_Name CoachMourinho ;:Coach_Nationality Portuguese ;:Coach_Salary 1.8E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#CoachTuchel:CoachTuchelrdf:typeowl:NamedIndividual,:Coach;:Coach_Age42;:Coach_Name CoachTuchel ;:Coach_Nationality German ;:Coach_Salary 1.6E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#DeBruyne:DeBruynerdf:typeowl:NamedIndividual,:Athletes;:belongs_to:ManCity;:Athlete_Age31;:Athlete_Name DeBruyne ;:Athlete_Nationality Belgian ;:Athlete_Salary 3.0E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Emirates:Emiratesrdf:typeowl:NamedIndividual,:Venues;:Address London ;:Capacity60000;:Venue_Name Emirates .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Etihad:Etihadrdf:typeowl:NamedIndividual,:Venues;:Address Manchester ;:Capacity55000;:Venue_Name Etihad .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Firmino:Firminordf:typeowl:NamedIndividual,:Athletes;:belongs_to:Liverpool;:Athlete_Age33;:Athlete_Name Firmino ;:Athlete_Nationality Brazilian ;:Athlete_Salary 1.5E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Haaland:Haalandrdf:typeowl:NamedIndividual,:Athletes;:belongs_to:ManCity;:Athlete_Age21;:Athlete_Name Haaland ;:Athlete_Nationality Norwegian ;:Athlete_Salary 4.0E7 ^^xsd:float;:Height 1.94 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Kante:Kanterdf:typeowl:NamedIndividual,:Athletes;:belongs_to:Chelsea;:Athlete_Age32;:Athlete_Name Kante ;:Athlete_Nationality French ;:Athlete_Salary 2.5E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Liverpool:Liverpoolrdf:typeowl:NamedIndividual,:Teams;:coached_by:CoachKlopp;:defeated_by:Arsenal,:ManUtd;:has_home_venue:Anfield;:participates_in:ChampionsLeague,:PremierLeague;:Budget 2.5E8 ^^xsd:float;:Number_of_players30;:Team_Name Liverpool .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ManCity:ManCityrdf:typeowl:NamedIndividual,:Teams;:coached_by:CoachGuardiola;:defeated_by:Liverpool;:has_home_venue:Etihad;:participates_in:ChampionsLeague,:PremierLeague;:Budget 7.0E8 ^^xsd:float;:Number_of_players40;:Team_Name ManCity .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#ManUtd:ManUtdrdf:typeowl:NamedIndividual,:Teams;:coached_by:CoachMourinho;:defeated_by:Arsenal,:Liverpool,:ManCity;:has_home_venue:OldTrafford;:participates_in:PremierLeague;:Budget 4.6E8 ^^xsd:float;:Number_of_players46;:Team_Name ManUtd .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Odegaard:Odegaardrdf:typeowl:NamedIndividual,:Athletes;:belongs_to:Arsenal;:Athlete_Age23;:Athlete_Name Odegaard ;:Athlete_Nationality Norwegian ;:Athlete_Salary 1.3E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#OldTrafford:OldTraffordrdf:typeowl:NamedIndividual,:Venues;:Address Manchester ;:Capacity65000;:Venue_Name OldTrafford .###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#PremierLeague:PremierLeaguerdf:typeowl:NamedIndividual,:Competitions;:takes_place_at:Anfield,:Emirates,:Etihad,:OldTrafford,:StamfordBridge;:Competition_Name PremierLeague ;:Governing_body UEFA ;:Number_of_participants20;:Prize_money 9.0E8 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Ramsdale:Ramsdalerdf:typeowl:NamedIndividual,:Athletes;:belongs_to:Arsenal;:Athlete_Age24;:Athlete_Name Ramsdale ;:Athlete_Nationality British ;:Athlete_Salary 5000000.0 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Ronaldo:Ronaldordf:typeowl:NamedIndividual,:Athletes;:belongs_to:ManUtd;:Athlete_Age38;:Athlete_Name Ronaldo ;:Athlete_Nationality Portuguese ;:Athlete_Salary 1.0E8 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Rooney:Rooneyrdf:typeowl:NamedIndividual,:Athletes;:belongs_to:ManUtd;:Athlete_Age40;:Athlete_Name Rooney ;:Athlete_Nationality British ;:Athlete_Salary 1.7E7 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#Salah:Salahrdf:typeowl:NamedIndividual,:Athletes;:belongs_to:Liverpool;:Athlete_Age31;:Athlete_Name Salah ;:Athlete_Nationality Egyptian ;:Athlete_Salary 3.1E7 ^^xsd:float;:Height 1.75 ^^xsd:float.###http://www.semanticweb.org/omar/ontologies/5/2024/sportsontology#StamfordBridge:StamfordBridgerdf:typeowl:NamedIndividual,:Venues;:Address London ;:Capacity45000;:Venue_Name StamfordBridge .###GeneratedbytheOWLAPI(version4.5.26.2023-07-17T20:34:13Z)https://github.com/owlcs/owlapi";
-    String turtleOfOntology = turtlePt1 + " --- " + turtlePt3;
 }

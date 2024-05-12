@@ -10,19 +10,22 @@ import java.util.Objects;
 
 public class DbpediaApiRequest {
 
-    static final private String BASE_URL = "http://localhost:3030/SportsOntology/query";
+    static final private String BASE_URL = "http://localhost:3030/SportsOntology/sparql";
     static final private OkHttpClient client = new OkHttpClient();
-    static final private HttpUrl.Builder httpBuilder = Objects.requireNonNull(HttpUrl.parse(BASE_URL)).newBuilder();
-    static private final Map<String,String> queryParams =  new HashMap<String, String>() {{
-        put("output", "json");
-        put("query", "");
-    }};
+    static private HttpUrl.Builder httpBuilder = Objects.requireNonNull(HttpUrl.parse(BASE_URL)).newBuilder();
 
+    private DbpediaApiRequest(){}
 
 
     public static String sendQuery(String query, Map<String,String>extraParams) {
         String jsonRes = "";
         String htmlRes = "";
+
+        httpBuilder = httpBuilder.removeAllQueryParameters("query");
+        httpBuilder = httpBuilder.removeAllQueryParameters("output");
+        final HashMap<String,String> queryParams = new HashMap<>() {{
+            put("output", "json");
+        }};
         if (extraParams != null) {
             for(Map.Entry<String, String> param : extraParams.entrySet()) {
                 httpBuilder.addQueryParameter(param.getKey(),param.getValue());
@@ -48,6 +51,7 @@ public class DbpediaApiRequest {
                     System.out.println(htmlRes);
                 } else {
                     System.out.println("bad request");
+                    System.out.println(response.body().string());
                 }
             } catch (IOException e){
                 e.printStackTrace();

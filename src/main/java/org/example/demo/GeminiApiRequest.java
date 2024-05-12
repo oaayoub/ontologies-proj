@@ -16,15 +16,13 @@ public class GeminiApiRequest {
         String apiKey = "AIzaSyAXdsMLYA8_g95nBiPuQ35-wX4TSXbGea4";
         String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
         promptEngineringConstants prompts = new promptEngineringConstants();
-//        String query = prompts.querySamples + prompts.breaker + prompts.queryHeader +prompts.breaker+ prompts.turtleOfOntology +prompts.breaker + queryText;
-        String query = prompts.queryHeader + " `````` " + prompts.turtleOfOntology + " ``````` " + "this is my sparql query I want to apply on the previous ontology:: " +   queryText;
-        // JSON request body
-        String jsonReq = "{\"contents\":[{\"parts\":[{\"text\":\"" + query + "\"}]}]}";
 
+        String query = prompts.queryHeader +prompts.breaker+prompts.turtleOfOntology2 +prompts.breaker + "prompt:\n" + queryText;
+        String jsonReq = "{\"contents\":[{\"parts\":[{\"text\":\"" + query + "\"}]}]}";
+        System.out.println(jsonReq);
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(jsonReq, mediaType);
         // Create a Gson instance
-
         Request request = new Request.Builder()
                 .url(url)
                 .post(body)
